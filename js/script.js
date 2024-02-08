@@ -68,6 +68,7 @@ buttonElement.addEventListener("click", function() {
             //voglio avere in console il numero
             console.log(this.innerText);
     })
+    
     }
 })
 
