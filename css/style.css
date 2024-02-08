@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#intro{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   /*  margin-left: auto;
+    margin-right: auto; */
+    background-color: white;
+    padding: 100px 20px 0px;
+    padding-bottom: 100px;
+}
+#logo{
+    display: flex;
+    align-items: center;
+}
+button{
+    padding: 10px 20px;
+
+    border: 1px #5555ff solid;
+    border-radius: 20px;
+    color: #5555ff;
+    background-color: white;
+
+    transition: transform 0.4s ease, box-shadow .3s ease;
+
+    cursor: pointer;
+}
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 6px 4px rgba(0,0,0,0.6);
+}
+select{
+    padding: 10px;
+    text-align: end;
+    border: 1px #5555ff solid;
+    border-radius: 20px;
+    color: #5555ff;
+    background-color: white;
+
+    transition: transform 0.4s ease, box-shadow .3s ease;
+
+    cursor: pointer;
+}
+select:hover{
+    transform: scale(1.1);
+    box-shadow: 2px 6px 4px rgba(0,0,0,0.6);
+}
+img{
+    height: 80px;
+}
+.container{
+    max-width: 1000px;
+
+    margin: 0px auto;
+
+    overflow: auto;
+
+    /* padding-top: 100px; */
+
+    background-color: #5555ff;
+
+}
+/* Stilizzo la grid */
+#grid{
+    display: flex;
+    flex-flow: row wrap;
+    width: 700px;
+    height: 700px;
+}
+/* Stilizzo le mie square */
+#grid .square{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   /*  width: 100px;
+    height: 100px; */
+    border: 2px solid white;
+    color: white;
+    user-select: none;
+}
+#grid.easy .square {
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+#grid.medium .square {
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+
+#grid.hard .square {
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+}
+.square.active{
+    background-color: skyblue;
+    color: black;
+    font-weight: bold;
+}
