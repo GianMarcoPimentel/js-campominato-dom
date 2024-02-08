@@ -68,40 +68,59 @@ buttonElement.addEventListener("click", function() {
             //voglio avere in console il numero
             console.log(this.innerText);
     })
-    
+
     }
 })
 
 
 
-    //TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST
-    //faccio la funzione per creare i numeri casuali all'interno degli square
+//TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST
+//faccio la funzione per creare i numeri casuali all'interno degli square
 
-    function getRandomNumber(maxNumber){
+function getRandomNumber(maxNumber){
 
-        const randomNumber = Math.floor(Math.random() * maxNumber) + 1;
+    const randomNumber = Math.floor(Math.random() * maxNumber) + 1;
 
-        return randomNumber;
+    return randomNumber;
 
-    }
-    getRandomNumbersArray();
-    function getRandomNumbersArray(){
+}
+getRandomNumbersArray();
+function getRandomNumbersArray(){
 
-        const numbersArray = [];
+    const numbersArray = [];
 
-        while(numbersArray.length < 100){
-        //numbersArray.push(getRandomNumber(100));     
-            // console.log(numbersArray); 
-            // insrisci il numero solo se non è già presente
-            const newNumber = getRandomNumber(100) ;
-            //controllo se il numero è già presente ne nostro array
-            if( ! numbersArray.includes(newNumber)){
-                numbersArray.push(newNumber);
-            }
-        
+    while(numbersArray.length < 100){
+    //numbersArray.push(getRandomNumber(100));     
+        // console.log(numbersArray); 
+        // insrisci il numero solo se non è già presente
+        const newNumber = getRandomNumber(100) ;
+        //controllo se il numero è già presente nel nostro array
+        if( ! numbersArray.includes(newNumber)){
+            numbersArray.push(newNumber);
         }
-        // per farlo apparire in pagina devo fare il return del mio array
-        return numbersArray;
+    
     }
+    // per farlo apparire in pagina devo fare il return del mio array
+    return numbersArray;
+}
 
 
+//Il computer deve generare 16 numeri casuali e inserirli in un array
+//in base al range della difficoltà prescelta 
+//(se abbiamo scelto facile l'array conterrà numeri casuali da 1 a 100, se invece abbiamo scelto difficile l'array dovrà contenerne da 1 a 49)
+//questi rappreseranno le posizioni delle nostre bombe.
+
+// creo una funzioneche mi inserisca in un array 16 numeri:
+/* computerRandomNumbers();
+function computerRandomNumbers() {
+    const computerArray = [];
+    while(computerArray.length < 17){
+        const computerNumber = getRandomNumber(16);
+        console.log(computerNumber);
+        if( ! computerArray.includes(computerNumber)){
+            computerArray.push(computerNumber);
+        }
+    }
+    // per farlo apparire in pagina devo fare il return del mio array
+    return computerArray;
+} */
