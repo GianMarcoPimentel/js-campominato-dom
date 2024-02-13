@@ -17,6 +17,7 @@ Al termine della partita il software deve comunicare il punteggio, cioè il nume
 const buttonElement = document.querySelector("#start");
 /* console.log(buttonElement); */
 buttonElement.addEventListener("click", function() {
+
     //salvo la griglia in una variabile
     const gridElement = document.querySelector("#grid");
     /* console.log(gridElement);*/
@@ -43,24 +44,51 @@ buttonElement.addEventListener("click", function() {
     gridElement.innerHTML="";
     // faccio comparire la griglia
     gridElement.style.display = "flex";
-    const RandomNumbersArray = getRandomNumbersArray();
-    console.log(RandomNumbersArray);
+    //genero ciclo for per avere i 16 numeri casuali dell'array creato nella function()
+    const RandomBombNumbers = computerRandomNumbers(16, squareNumber);
+    console.log(RandomBombNumbers);
+    for(let i = 0; i < squareNumber ; i++){
+       let newElement = document.createElement("div");
+       newElement.classList.add("square");
+       newElement.innerText = RandomBombNumbers[i] ;
+       gridElement.append(newElement);
+       newElement.addEventListener("click", function(){
+        /* console.log("click"); */
+        /* console.log(this); */ //per vedere dove agisce il this
+        //per mezzo di 'this' aggiungo una classe
+        this.classList.add("active");
+       // newElement.classList.add("even");
+        //newElement.classList.add("odd");
+        //voglio avere in console il numero
+        console.log(this.innerText);
+       
+        })
+    }
+      
+
+
+
+
+
+
+/*     const RandomNumbersArray = getRandomNumbersArray();
+    console.log(RandomNumbersArray); */
     //griglia 10x10
-    for (let i = 0; i < squareNumber ; i++){ // metto 'squareNumber' e non un numero in modo che possa cambiarlo in base alla difficoltà
+   /*  for (let i = 0; i < squareNumber ; i++){ // metto 'squareNumber' e non un numero in modo che possa cambiarlo in base alla difficoltà
         // per ognunodi questi creare un elemento 
-        const newElement = document.createElement("div");
-        /* console.log(newElement); */
+        let newElement = document.createElement("div");
+      
         // ci aggiungo la classe
         newElement.classList.add("square");
         newElement.innerText = RandomNumbersArray[i] ; // per scrivere all'interno degli square i numeri da 1 a 100 CASUALI
-        /* newElement.innerText = i + 1 ; */ // per scrivere all'interno degli square i numeri da 1 a 100 ORDINATI
+        // newElement.innerText = i + 1 ; // per scrivere all'interno degli square i numeri da 1 a 100 ORDINATI
  
         //all'interno di se stesso ci aggiungo il nostro newElement
         gridElement.append(newElement);
 
         newElement.addEventListener("click", function(){
-            /* console.log("click"); */
-            /* console.log(this); */ //per vedere dove agisce il this
+            // console.log("click"); 
+            // console.log(this);  //per vedere dove agisce il this
             //per mezzo di 'this' aggiungo una classe
             this.classList.toggle("active");
            // newElement.classList.add("even");
@@ -69,7 +97,9 @@ buttonElement.addEventListener("click", function() {
             console.log(this.innerText);
     })
 
-    }
+    } 
+    */
+
 })
 
 
@@ -111,16 +141,23 @@ function getRandomNumbersArray(){
 //questi rappreseranno le posizioni delle nostre bombe.
 
 // creo una funzioneche mi inserisca in un array 16 numeri:
-/* computerRandomNumbers();
+computerRandomNumbers();
 function computerRandomNumbers() {
     const computerArray = [];
-    while(computerArray.length < 17){
-        const computerNumber = getRandomNumber(16);
-        console.log(computerNumber);
+    while(computerArray.length < 16){
+        const computerNumber = getRandomNumber(100);
+      
         if( ! computerArray.includes(computerNumber)){
             computerArray.push(computerNumber);
         }
     }
     // per farlo apparire in pagina devo fare il return del mio array
     return computerArray;
+}
+
+//funzione che gestisce il click di una singola cella
+/* function clickManager() {
+
+
+    if(this.innerText)
 } */
